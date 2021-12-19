@@ -1,0 +1,208 @@
+body{
+  background-color: #e9ecef;
+  min-height: 100%
+
+}
+.btnHaku{
+    float: right;
+}
+
+#divAsiantuntijat{
+    float: left;
+    display: none;
+}
+
+.Palvelut-grid-container {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    grid-gap: 5%;
+  }
+  
+  .Palvelut-grid-container > div {
+    text-align: center;
+    padding: 20px;
+  }
+
+ 
+#ajanvarausTxt1{
+    display: none;
+}
+
+#ajanvarausTxt2{
+    display: none;
+}
+
+#ajanvarausTxt3{
+    display: none;
+}
+
+.ui-datepicker{
+    margin: 20px 0;
+}
+
+#frmVaraus{
+    display:none;
+    margin-top: 20px
+}
+
+#btnTeeVaraus{
+    float: right;
+    margin-top: 20px;
+}
+
+#txtHaku{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    
+}
+
+.dropbtn {
+    background-color:#5A9089;
+    color: white;
+    padding:8px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #5A9089;}
+
+  .containerKirjautuminen{
+    background-color: white;
+    margin-top: 20px;                           
+  }
+
+  .divKirjautuminen1{
+    margin-top: 40px;
+    height: 70vh;
+  }
+
+  .divKirjautuminen2{
+    background-color: white;
+    padding: 1.2rem;
+    border-style: ridge;
+  }
+  
+  .pTerapeutti{
+    margin-bottom: auto;
+    margin-top: 10px;
+  }
+
+  .footerRTP2{
+    background-color: white;
+    border-top: ridge;
+    border: 1px solid rgba(0,0,0,.1);
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    min-height: 300px;
+    position: bottom;
+  }
+  .footerRTP1{
+    background-color: white;
+    width: 100%;
+  }
+  .tbVaraustiedot{
+    margin-bottom: 10%;
+  }
+  .btnVaraa{
+    float: right;
+    margin-top: 35px;
+  } 
+
+
+  @font-face {
+    font-family: 'AppleL';   
+    src: url('../fonts/AppleGaramond-Light.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: 'Apple';   
+    src: url('../fonts/AppleGaramond.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: 'AppleB';   
+    src: url('../fonts/AppleGaramond-Bold.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: 'AppleBL';   
+    src: url('../fonts/AppleGaramond-BoldItalic.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: 'AppleI';   
+    src: url('../fonts/AppleGaramond-Italic.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  @font-face {
+    font-family: 'AppleLI';   
+    src: url('../fonts/AppleGaramond-LightItalic.ttf');
+    font-style: normal;
+    font-weight: 100;
+  }
+  .fontti {    
+    font-family: 'Apple';
+    font-weight: 100;    
+  }
+  .fonttiL {    
+    font-family: 'AppleL';
+    font-weight: 100;    
+  }
+  .fonttiB{    
+    font-family: 'AppleB';
+    font-weight: 100;    
+  }
+  .fonttiBL{    
+    font-family: 'AppleBL';
+    font-weight: 100;    
+  }
+  .fonttiI{    
+    font-family: 'AppleI';
+    font-weight: 100;    
+  }
+  .fonttiLI{    
+    font-family: 'AppleLI';
+    font-weight: 100;    
+  }
+  #tbVaraustiedot{
+    display:none;
+  }
+  .txaVaraukset{
+    width: 100%;
+    margin-top: 35px;
+  }
+  .txtVaraus1{
+    margin-top: 25px;
+  }
