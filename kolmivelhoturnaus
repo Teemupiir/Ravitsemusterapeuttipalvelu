@@ -1,0 +1,186 @@
+USE rtp_db;
+
+CREATE VIEW kolmivelho AS
+
+SELECT distinct a.tp_fk,a.users_fk,a.etunimi,a.sukunimi,a.esittely, a.paikkakunta, a.hyvinvointi, a.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN vanhus=1 THEN 'Ikääntyneiden ruokavalio' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as a
+
+UNION
+
+SELECT distinct b.tp_fk,b.users_fk,b.etunimi,b.sukunimi,b.esittely, b.paikkakunta, b.hyvinvointi, b.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN urheilu=1 THEN 'Urheiluravitsemus' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as b
+
+UNION
+
+SELECT distinct c.tp_fk,c.users_fk,c.etunimi,c.sukunimi,c.esittely, c.paikkakunta,c.hyvinvointi, c.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN vegaani=1 THEN 'Vegaaniravitsemus' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as c
+
+UNION
+
+SELECT distinct d.tp_fk,d.users_fk,d.etunimi,d.sukunimi,d.esittely,d.paikkakunta, d.hyvinvointi, d.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN kirurgiset=1 THEN 'Kirurgisten potilaiden ravitsemus' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as d
+
+UNION
+	
+SELECT distinct e.tp_fk,e.users_fk,e.etunimi,e.sukunimi,e.esittely,e.paikkakunta, e.hyvinvointi, e.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN lapset=1 THEN 'Lasten ja nuorten ravitsemus' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as e
+
+UNION
+
+SELECT distinct f.tp_fk,f.users_fk,f.etunimi,f.sukunimi,f.esittely,f.paikkakunta, f.hyvinvointi, f.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN ryhmat=1 THEN 'Ryhmäohjaus' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as f
+
+UNION
+
+SELECT distinct g.tp_fk,g.users_fk,g.etunimi,g.sukunimi,g.esittely,g.paikkakunta, g.hyvinvointi, g.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN nutrigen=1 THEN 'Nutrigenomiikka' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as g
+
+UNION	
+	
+SELECT distinct h.tp_fk,h.users_fk,h.etunimi,h.sukunimi,h.esittely,h.paikkakunta, h.hyvinvointi, h.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN tyoterveys=1 THEN 'Työterveyshuollon pätevyys' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as h
+
+UNION	
+
+SELECT distinct i.tp_fk,i.users_fk,i.etunimi,i.sukunimi,i.esittely,i.paikkakunta, i.hyvinvointi, i.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN ruokapalvelut=1 THEN 'Ruokapalvelut' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as i
+
+UNION	
+
+SELECT distinct j.tp_fk,j.users_fk,j.etunimi,j.sukunimi,j.esittely,j.paikkakunta, j.hyvinvointi, j.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+CASE WHEN elintarvikkeet=1 THEN 'Terveysvaikutteiset elintarvikkeet' END AS hyvinvointi,' Valitse kaikki' AS sairaudet 
+FROM terapeutit t left join terapeutin_hyvinvointi th on t.tp_id=th.tp_fk) as j
+
+UNION		
+
+SELECT distinct k.tp_fk,k.users_fk,k.etunimi,k.sukunimi,k.esittely,k.paikkakunta, k.hyvinvointi, k.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN bulimia=1 THEN 'Syömishäiriöt & tunnesyöminen' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as k
+
+UNION		
+	
+SELECT distinct l.tp_fk,l.users_fk,l.etunimi,l.sukunimi,l.esittely,l.paikkakunta, l.hyvinvointi, l.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN diabetes_tyyppi1=1 THEN 'Tyypin 1 diabeteksen ravitsemushoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as l
+
+UNION	
+
+SELECT distinct m.tp_fk,m.users_fk,m.etunimi,m.sukunimi,m.esittely,m.paikkakunta, m.hyvinvointi, m.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN allergia=1 THEN 'Allergiat' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as m
+
+UNION		
+	
+SELECT distinct n.tp_fk,n.users_fk,n.etunimi,n.sukunimi,n.esittely,n.paikkakunta, n.hyvinvointi, n.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN fodmap=1 THEN 'FODMAP-ruokavalio' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as n
+
+UNION	
+	
+SELECT distinct o.tp_fk,o.users_fk,o.etunimi,o.sukunimi,o.esittely,o.paikkakunta, o.hyvinvointi, o.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN keuhko=1 THEN 'Keuhkosairauksien ravitsemushoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as o
+
+UNION	
+
+SELECT distinct p.tp_fk,p.users_fk,p.etunimi,p.sukunimi,p.esittely,p.paikkakunta, p.hyvinvointi, p.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN lihavuus=1 THEN 'Lihavuusleikkaukset' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as p
+
+UNION	
+
+SELECT distinct q.tp_fk,q.users_fk,q.etunimi,q.sukunimi,q.esittely,q.paikkakunta, q.hyvinvointi, q.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN munuais=1 THEN 'Munuaissairauksien ravitsemushoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as q
+
+UNION	
+
+SELECT distinct r.tp_fk,r.users_fk,r.etunimi,r.sukunimi,r.esittely,r.paikkakunta, r.hyvinvointi, r.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN neuro=1 THEN 'Neurologisten sairauksien hoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as r
+
+UNION	
+
+SELECT distinct s.tp_fk,s.users_fk,s.etunimi,s.sukunimi,s.esittely,s.paikkakunta, s.hyvinvointi, s.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN psykiatriset=1 THEN 'Psykiatristen potilaiden ravitsemus' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as s
+
+UNION	
+
+SELECT distinct t.tp_fk,t.users_fk,t.etunimi,t.sukunimi,t.esittely,t.paikkakunta, t.hyvinvointi, t.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN reuma=1 THEN 'Reumasairaudet ja ravitsemus' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as t
+
+UNION	
+
+SELECT distinct u.tp_fk,u.users_fk,u.etunimi,u.sukunimi,u.esittely,u.paikkakunta, u.hyvinvointi, u.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN ruoansulatus=1 THEN 'Ruoansulatuskanavan sairauksien ravitsemushoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as u
+
+UNION	
+
+SELECT distinct v.tp_fk,v.users_fk,v.etunimi,v.sukunimi,v.esittely,v.paikkakunta, v.hyvinvointi, v.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN syopa=1 THEN 'Syöpä ja ravitsemus' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as v
+
+
+UNION	
+
+SELECT distinct w.tp_fk,w.users_fk,w.etunimi,w.sukunimi,w.esittely,w.paikkakunta, w.hyvinvointi, w.sairaudet
+FROM 
+(SELECT tp_id as tp_fk,users_fk,tp_etunimi as etunimi, tp_sukunimi as sukunimi, tp_esittelyteksti as esittely,tp_paikkakunta as paikkakunta, 
+' Valitse kaikki' AS hyvinvointi,CASE WHEN artynyt_suoli=1 THEN 'Ärtyneen suolen oireyhtymän ravitsemushoito' END AS sairaudet 
+FROM terapeutit t left join terapeutin_sairaudet th on t.tp_id=th.tp_fk) as w	
